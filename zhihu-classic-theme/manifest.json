@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Zhihu Classic Theme",
+  "version": "1.0",
+  "author": "cshenger",
+  "homepage_url": "https://github.com/cshenger",
+  "description": "用Trae将知乎的界面风格恢复到经典的蓝色主题（PS：到头来样式还是我自己改的o(╥﹏╥)o）",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_icon": "icon.png",
+    "default_title": "Zhihu Classic Theme"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["*://*.zhihu.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.zhihu.com/*"],
+      "css": ["styles.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}

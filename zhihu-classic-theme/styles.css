@@ -1,0 +1,342 @@
+/* 
+   知乎旧版主题（Zhihu Classic Theme）
+   目标：将新版知乎的视觉改造成旧版风格（蓝色导航、白底、列表样式）。
+   说明：按“页面结构相关性”重新组织，并使用中文注释。
+*/
+
+/* ================================
+   1. 全局基础
+   ================================ */
+body {
+    /* 旧版为白色背景 */
+    background-color: #fff !important;
+}
+
+/* ================================
+   2. 顶部导航容器（旧版蓝色）
+   ================================ */
+.AppHeader {
+    /* 旧版导航渐变、边框与阴影 */
+    background: #086ed5 !important; /* 回退色 */
+    background: linear-gradient(to bottom, #086ed5, #055db5) !important;
+    border-bottom: 1px solid #044e97 !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .15) !important;
+    /* 高度统一为 45px */
+    height: 45px !important;
+    min-height: 45px !important;
+}
+
+.AppHeader-inner {
+    /* 旧版常用宽度（960/1000），这里选 960 */
+    max-width: 960px !important;
+    height: 45px !important;
+    min-height: 45px !important;
+}
+
+/* 主内容与头部的间距微调（避免遮挡） */
+.App-main {
+    padding-top: 10px !important;
+}
+
+/* ================================
+   3. 导航标签（居中、白字）
+   ================================ */
+.AppHeader-Tabs {
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important; 
+    padding: 0 !important;
+}
+
+/* 导航链接统一白色、居中、垂直对齐 */
+.AppHeader-Tabs a,
+.AppHeader-Tabs .Tabs-link,
+.TopstoryTabs-link,
+.AppHeader-navItem {
+    color: #fff !important;
+    opacity: 0.7 !important;
+    transition: opacity 0.2s, color 0.2s;
+    line-height: 45px !important; 
+    height: 45px !important;
+    padding: 0 15px !important;
+    font-size: 14px !important;
+    text-align: center !important; 
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 悬停增强对比 */
+.AppHeader-Tabs a:hover,
+.AppHeader-Tabs .Tabs-link:hover {
+    opacity: 1 !important;
+    color: #fff !important;
+}
+
+/* 选中态加粗且不透明 */
+.AppHeader-Tabs .Tabs-link.is-active,
+.AppHeader-Tabs a.is-active {
+    color: #fff !important; 
+    font-weight: bold !important;
+    opacity: 1 !important;
+}
+
+/* 选中下划线位置与高度 */
+.AppHeader-Tabs .Tabs-link.is-active::after,
+.AppHeader-Tabs a.is-active::after {
+    background-color: #fff !important;
+    height: 3px !important;
+    bottom: 0 !important; 
+}
+
+/* ================================
+   4. Logo（替换为指定图片）
+   ================================ */
+.AppHeader-logo,
+a[aria-label="知乎"] {
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    /* 使用外链图片替换旧 Logo */
+    background-image: url('https://static.zhihu.com/static/revved/img/sticky_header/new_logo.ede2316d.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 64px auto !important;
+    width: 80px !important; 
+    /* 隐藏原始文本内容 */
+    text-indent: -9999px !important; 
+    overflow: hidden !important;
+    color: transparent !important;
+}
+
+/* 隐藏原始 SVG Logo（防止覆盖失败） */
+.AppHeader-logo svg,
+a[aria-label="知乎"] svg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+/* ================================
+   5. 搜索框（尺寸与对齐）
+   ================================ */
+.SearchBar {
+    margin-top: 0 !important;
+    height: 32px !important; /* 紧凑高度 */
+    background-color: rgba(0, 0, 0, 0.12) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-radius: 3px !important;
+}
+
+.SearchBar-tool {
+    height: 32px !important;
+    padding: 0 10px !important;
+}
+
+/* 输入框与占位符颜色（白色系） */
+.SearchBar-inputInputWrapper .Input {
+    color: #fff !important;
+    height: 30px !important;
+}
+.SearchBar-inputInputWrapper .Input::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 搜索按钮与图标 */
+.SearchBar-searchButton {
+    color: rgba(255, 255, 255, 0.8) !important;
+    padding: 0 !important;
+    height: 32px !important;
+    width: 32px !important;
+}
+.SearchBar-searchButton svg {
+    fill: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ================================
+   6. 导航右侧（按钮与头像）
+   ================================ */
+.AppHeader-userInfo {
+    height: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 文本按钮颜色（白色系） */
+.AppHeader-userInfo .Button--plain {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+.AppHeader-userInfo .Button--plain:hover {
+    color: #fff !important;
+}
+
+/* 提问按钮（旧版风格） */
+.SearchBar-askButton, 
+.AppHeader-userInfo .Button--primary {
+    height: 32px !important;
+    line-height: 30px !important; /* 文本垂直居中 */
+    padding: 0 14px !important;
+    background-color: #0077d9 !important; /* 略深蓝 */
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    color: #fff !important;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1) !important;
+}
+
+/* 头像边框（收敛圆角） */
+.AppHeader-profile .Avatar {
+    width: 30px !important;
+    height: 30px !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+/* ================================
+   7. 内容列表（去卡片化）
+   ================================ */
+
+/* 去阴影、去边框、去圆角，呈现列表分段 */
+.Card, 
+.TopstoryItem,
+.AnswerItem,
+.ArticleItem,
+.HotItem {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    border: none !important;
+    margin-bottom: 0 !important;
+    padding: 16px 0 !important;
+    border-bottom: none !important; 
+}
+
+/* 标题：经典知乎蓝 */
+.ContentItem-title {
+    margin-bottom: 6px !important;
+    font-size: 18px !important;
+}
+
+.ContentItem-title a,
+.HotItem-title {
+    color: #175199 !important; /* 旧版链接蓝 */
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+.ContentItem-title a:hover {
+    text-decoration: underline !important;
+}
+
+/* 正文文字：更深的黑灰 */
+.RichContent-inner, 
+.ContentItem-excerpt,
+.HotItem-excerpt {
+    color: #222 !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+}
+
+/* 操作区间距 */
+.ContentItem-actions {
+    margin-top: 10px !important;
+}
+
+/* ================================
+   8. 侧栏（简化视觉）
+   ================================ */
+.GlobalSideBar .Card {
+    box-shadow: none !important;
+    border: 1px solid #eee !important; /* 轻描边 */
+    background: #fff !important;       /* 白底 */
+    margin-bottom: 10px !important;
+}
+
+/* ================================
+   9. 投票按钮（淡蓝）
+   ================================ */
+.VoteButton {
+    background: #eff6fa !important;
+    color: #0084ff !important;
+    border-color: transparent !important;
+}
+.VoteButton.is-active {
+    background: #0084ff !important;
+    color: #fff !important;
+}
+
+/* ================================
+   10. 隐藏广告容器
+   ================================ */
+.Pc-feedAd-container,
+.TopstoryItem--advertCard {
+    display: none !important;
+}
+
+/* ================================
+   11. 兜底兼容（针对动态类名）
+   说明：知乎使用 CSS-in-JS，类名经常是随机的，以下规则用于强制标题白色与高度。
+   ================================ */
+.css-lgijre { /* 顶部容器未知类名：强制高度 */
+    height: 45px !important;
+}
+.css-lgijre > div nav a,
+.css-lgijre > div a {
+    /* 导航链接统一白色与字号 */
+    color: #fff !important;
+    font-size: 14px !important;
+}
+.css-lgijre > div nav a:hover,
+.css-lgijre > div a:hover {
+    color: #fff !important;
+}
+.css-lgijre > div nav a.is-active > div > div {
+    /* 选中下划线为白色 */
+    background-color: #fff !important;
+}
+.Avatar {
+    /* 头像圆角更小，更贴旧版 */
+    border-radius: 2px !important;
+}
+.Popover .css-vurnku, .Popover > button {
+    color: #fff !important;
+    font-size: 12px !important;
+}
+.Popover .css-vurnku:hover {
+    color: #fff !important;
+    font-size: 12px !important;
+}
+.Popover > button:hover {
+    color: #fff !important;
+    font-size: 12px !important;
+    font-weight: bold !important;  
+}
+.css-vurnku {
+    font-size: 12px !important;
+}
+.css-vurnku:hover {
+    font-size: 12px !important;
+    font-weight: bold !important;  
+}
+.Popover .SearchBar-input {
+    max-width: inherit !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+}
+.SearchBar-searchButton, .css-v0eidh .SearchBar-searchButton {
+    border-bottom-right-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+    font-size: 14px !important;
+}
+@supports (color:lab(from red l 1 1%/calc(alpha + 0.1))) {
+    .Topstory-mainColumnCard {
+        /* 某些环境的卡片阴影清除（兜底） */
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        font-size: 14px !important;
+    }
+}
+.QuestionHeader-title {
+    color: #fff !important;
+}
+.QuestionHeader-side .Button--blue {
+    color: #fff !important;
+}
