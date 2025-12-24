@@ -99,7 +99,7 @@ a[aria-label="知乎"] {
     display: flex !important;
     align-items: center !important;
     /* 使用外链图片替换旧 Logo */
-    background-image: url('./logo.png') !important;
+    background-image: url('./images/logo.png') !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: 64px auto !important;

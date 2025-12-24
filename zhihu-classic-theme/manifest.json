@@ -6,12 +6,12 @@
   "homepage_url": "https://github.com/cshenger",
   "description": "用Trae将知乎的界面风格恢复到经典的蓝色主题（PS：到头来样式还是我自己改的o(╥﹏╥)o）",
   "icons": {
-    "16": "icon.png",
-    "48": "icon.png",
-    "128": "icon.png"
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
   },
   "action": {
-    "default_icon": "icon.png",
+    "default_icon": "images/icon.png",
     "default_title": "Zhihu Classic Theme"
   },
   "permissions": ["activeTab", "scripting"],
