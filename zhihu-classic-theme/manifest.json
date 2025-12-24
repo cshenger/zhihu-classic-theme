@@ -16,6 +16,12 @@
   },
   "permissions": ["activeTab", "scripting"],
   "host_permissions": ["*://*.zhihu.com/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/logo.png", "images/icon.png"],
+      "matches": ["*://*.zhihu.com/*"]
+    }
+  ],
   "content_scripts": [
     {
       "matches": ["*://*.zhihu.com/*"],

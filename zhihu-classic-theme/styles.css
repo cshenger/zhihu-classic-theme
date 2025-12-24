@@ -99,11 +99,13 @@ a[aria-label="知乎"] {
     display: flex !important;
     align-items: center !important;
     /* 使用外链图片替换旧 Logo */
-    background-image: url('./images/logo.png') !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-size: 64px auto !important;
+    background-image: url('./images/logo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 64px auto;
     width: 80px !important; 
+    margin-left: 10px;
+    margin-right: 0 !important;
     /* 隐藏原始文本内容 */
     text-indent: -9999px !important; 
     overflow: hidden !important;
@@ -172,8 +174,7 @@ a[aria-label="知乎"] svg {
 }
 
 /* 提问按钮（旧版风格） */
-.SearchBar-askButton, 
-.AppHeader-userInfo .Button--primary {
+.SearchBar-askButton {
     height: 32px !important;
     line-height: 30px !important; /* 文本垂直居中 */
     padding: 0 14px !important;
@@ -181,6 +182,39 @@ a[aria-label="知乎"] svg {
     border: 1px solid rgba(0,0,0,0.1) !important;
     color: #fff !important;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.1) !important;
+}
+/* 按钮样式 */
+.Button--blue, .QuestionHeader-side .Button--blue {
+    color: #8ab923 !important;
+    border: 1px solid #6d8f29 !important;
+    border-radius: 4px !important;
+}
+.Button--primary {
+    width: auto !important;
+    min-width: 78px !important;
+    color: #3e5e00 !important;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .3) !important;
+    background: #8ab923 !important;
+    background: -webkit-linear-gradient(top, #adda4d, #86b846) !important;
+    background: linear-gradient(to bottom, #adda4d, #86b846) !important;
+    border: 1px solid #6d8f29 !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset, 0 1px 0 rgba(0, 0, 0, .2) !important;
+}
+.Button--primary:hover, .Button--primary:active, .Button--primary:focus {
+    background: #79a814 !important;
+    background: -webkit-linear-gradient(top, #9ac244, #78a53e) !important;
+    background: linear-gradient(to bottom, #9ac244, #78a53e) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .3) inset !important;
+    border-radius: 4px !important;
+}
+.Button--secondary {
+    color: #3e5e00 !important;
+    background: #d4e1b7 !important;
+    border-radius: 4px !important;
+}
+.QuestionButtonGroup .Button {
+    color: #3e5e00 !important;
 }
 
 /* 头像边框（收敛圆角） */
@@ -193,6 +227,23 @@ a[aria-label="知乎"] svg {
 /* ================================
    7. 内容列表（去卡片化）
    ================================ */
+
+/* 文章标题 */
+.ColumnPageHeader {
+    background-color: transparent !important;
+    background: transparent !important;
+    height: 45px !important;
+}
+.ColumnPageHeader-Title, .ColumnPageHeader-content {
+    height: 45px !important;
+    line-height: 45px !important;
+    background-color: transparent !important;
+    background: transparent !important;
+    color: #fff !important;
+}
+.ColumnPageHeader-Title div, .ColumnPageHeader-content div {
+    color: #fff !important;
+}
 
 /* 去阴影、去边框、去圆角，呈现列表分段 */
 .Card, 
@@ -210,6 +261,12 @@ a[aria-label="知乎"] svg {
 }
 
 /* 标题：经典知乎蓝 */
+.AppHeader .QuestionHeader-title {
+    color: #fff !important;
+}
+.AppHeader .QuestionHeader-main {
+    padding-left: 0 !important;
+}
 .ContentItem-title {
     margin-bottom: 6px !important;
     font-size: 18px !important;
@@ -299,6 +356,7 @@ a[aria-label="知乎"] svg {
 .Popover .css-vurnku, .Popover > button {
     color: #fff !important;
     font-size: 12px !important;
+    border-radius: 4px !important;
 }
 .Popover .css-vurnku:hover {
     color: #fff !important;
@@ -433,5 +491,51 @@ a[aria-label="知乎"] svg {
     /* 顶栏保持蓝色，但微调阴影使其融合 */
     .AppHeader {
         box-shadow: 0 1px 2px rgba(0, 0, 0, .5) !important;
+    }
+
+    /* 顶栏搜索框与输入 */
+    .SearchBar {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    .SearchBar-searchButton {
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+    .SearchBar-searchButton svg {
+        fill: rgba(255, 255, 255, 0.9) !important;
+    }
+    .SearchBar-inputInputWrapper .Input {
+        color: #fff !important;
+    }
+    .SearchBar-inputInputWrapper .Input::placeholder {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+
+    /* 列表分隔线（暗色轻描） */
+    .Card, 
+    .TopstoryItem,
+    .AnswerItem,
+    .ArticleItem,
+    .HotItem {
+        border-bottom: 1px solid #222 !important;
+    }
+
+    /* 正文链接色 */
+    .RichContent-inner a {
+        color: #64b5f6 !important;
+    }
+    .RichContent-inner a:hover {
+        color: #90caf9 !important;
+    }
+
+    /* 弹出搜索输入与菜单统一暗底 */
+    .Popover .SearchBar-input {
+        background-color: rgba(255, 255, 255, 0.12) !important;
+        color: #fff !important;
+    }
+
+    /* 顶栏右侧主按钮边框微亮 */
+    .AppHeader-userInfo .Button--primary {
+        border-color: rgba(255, 255, 255, 0.2) !important;
     }
 }
