@@ -353,7 +353,7 @@ a[aria-label="知乎"] svg {
     /* 头像圆角更小，更贴旧版 */
     border-radius: 2px !important;
 }
-.Popover .css-vurnku, .Popover > button {
+.Popover .css-vurnku, .Popover > button:not([aria-label="更多"]) {
     color: #fff !important;
     font-size: 12px !important;
     border-radius: 4px !important;
@@ -362,7 +362,7 @@ a[aria-label="知乎"] svg {
     color: #fff !important;
     font-size: 12px !important;
 }
-.Popover > button:hover {
+.Popover > button:not([aria-label="更多"]):hover {
     color: #fff !important;
     font-size: 12px !important;
     font-weight: bold !important;  

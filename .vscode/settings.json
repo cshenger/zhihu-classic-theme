@@ -1,0 +1,52 @@
+{
+    "background.editor": {
+        "useFront": true,
+        "style": {
+        "background-position": "100% 100%",
+        "background-size": "auto",
+        "opacity": 1
+        },
+        "styles": [
+            {
+                "content": "''",
+                "pointer-events": "none",
+                "position": "absolute",
+                "z-index": "99999",
+                "width": "100%",
+                "height": "100%",
+                "background-position": "right bottom",
+                "background-repeat": "no-repeat",
+                "opacity": 0.26,
+                "background-size": "contain",
+            },
+            {
+                "content": "''",
+                "pointer-events": "none",
+                "position": "absolute",
+                "z-index": "99999",
+                "width": "100%",
+                "height": "100%",
+                "background-position": "right bottom",
+                "background-repeat": "no-repeat",
+                "opacity": 0.26,
+                "background-size": "contain",
+            },
+            {
+                "content": "''",
+                "pointer-events": "none",
+                "position": "absolute",
+                "z-index": "99999",
+                "width": "100%",
+                "height": "100%",
+                "background-position": "right bottom",
+                "background-repeat": "no-repeat",
+                "opacity": 0.26,
+                "background-size": "contain",
+            },
+        ],
+        // Local images can be dragged into the browser to quickly get the file protocol address from the address bar
+        "images": ["file:///E://vscodeBg//439.png", "file:///E://vscodeBg//523.png", "file:///E://vscodeBg//525.png"],
+        "interval": 0,
+        "random": false
+    }
+}
