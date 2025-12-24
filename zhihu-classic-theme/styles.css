@@ -35,7 +35,7 @@ body {
 
 /* 主内容与头部的间距微调（避免遮挡） */
 .App-main {
-    padding-top: 10px !important;
+    margin-top: -20px !important;
 }
 
 /* ================================
@@ -99,7 +99,7 @@ a[aria-label="知乎"] {
     display: flex !important;
     align-items: center !important;
     /* 使用外链图片替换旧 Logo */
-    background-image: url('https://static.zhihu.com/static/revved/img/sticky_header/new_logo.ede2316d.png') !important;
+    background-image: url('./logo.png') !important;
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: 64px auto !important;
@@ -334,9 +334,104 @@ a[aria-label="知乎"] svg {
         font-size: 14px !important;
     }
 }
-.QuestionHeader-title {
-    color: #fff !important;
-}
 .QuestionHeader-side .Button--blue {
     color: #fff !important;
+}
+
+/* ================================
+   12. 暗黑模式适配 (Dark Mode)
+   说明：当操作系统切换为深色模式时生效
+   ================================ */
+@media (prefers-color-scheme: dark) {
+    /* 1. 全局背景与文字 */
+    body {
+        background-color: #121212 !important;
+        color: #c5c5c5 !important;
+    }
+
+    /* 2. 侧栏卡片：深灰底、深边框 */
+    .GlobalSideBar .Card {
+        background-color: #1e1e1e !important;
+        border-color: #333 !important;
+        color: #c5c5c5 !important;
+    }
+
+    /* 3. 内容标题：由深蓝改为浅蓝，确保黑底可读 */
+    .ContentItem-title a,
+    .HotItem-title {
+        color: #64b5f6 !important;
+    }
+    
+    /* 4. 内容摘要：灰白 */
+    .RichContent-inner, 
+    .ContentItem-excerpt,
+    .HotItem-excerpt {
+        color: #b0b0b0 !important;
+    }
+
+    /* 5. 投票按钮：半透明蓝底，浅蓝字 */
+    .VoteButton {
+        background: rgba(0, 132, 255, 0.15) !important;
+        color: #64b5f6 !important;
+    }
+    .VoteButton:hover {
+        background: rgba(0, 132, 255, 0.25) !important;
+    }
+    /* 选中状态保持原样 (蓝底白字) */
+
+    /* 6. 操作按钮 (评论、分享等)：浅灰 */
+    .ContentItem-actions .Button--plain, 
+    .ContentItem-action {
+        color: #8590a6 !important;
+    }
+    .ContentItem-actions .Button--plain:hover, 
+    .ContentItem-action:hover {
+        color: #bbb !important;
+    }
+
+    /* 7. 输入框与评论区 */
+    .Input, 
+    .Editable, 
+    .Comments-container,
+    .CommentListV2-headerDivider,
+    .Topbar {
+        background-color: #1e1e1e !important;
+        border-color: #333 !important;
+        color: #eee !important;
+    }
+    
+    /* 8. 搜索下拉/菜单/气泡 */
+    .Popover-content, 
+    .Menu {
+        background-color: #1e1e1e !important;
+        border-color: #333 !important;
+    }
+    .Menu-item {
+        color: #eee !important;
+    }
+    .Menu-item:hover {
+        background-color: #333 !important;
+    }
+
+    /* 9. 杂项覆盖 */
+    /* 覆盖知乎自带的白色背景强制 */
+    .WhiteScreen {
+        background: #121212 !important;
+    }
+    
+    /* 问题头部背景 */
+    .QuestionHeader {
+        background: #1e1e1e !important;
+    }
+    .QuestionHeader-title {
+        color: #eee !important;
+    }
+    .QuestionHeader-footer {
+        background: #1e1e1e !important;
+    }
+    
+    /* 顶栏保持蓝色，但微调阴影使其融合 */
+    .AppHeader {
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .5) !important;
+    }
 }
